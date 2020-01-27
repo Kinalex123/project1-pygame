@@ -6,6 +6,8 @@ size = width, height = 800, 600
 screen = pygame.display.set_mode((size))
 clock = pygame.time.Clock()
 clicks = 0
+white = (250, 250, 250)
+black = (0, 0, 0)
 
 all_sprite = pygame.sprite.Group()
 sprite = pygame.sprite.Sprite()
@@ -15,7 +17,8 @@ all_sprite.add(sprite)
 sprite.rect.x = 100
 sprite.rect.y = 100
 
-pygame.font.Font(None, 24)
+font = pygame.font.Font(None, 24)
+text = font.render("Количество кликов: "+str(clicks),True,white)
 
 class Logv:
     def __init__(self, clicks):
@@ -44,7 +47,8 @@ while running:
                 print(clicks)
     screen.fill(pygame.Color("black"))
     all_sprite.draw(screen)
-    all_sprite.update()    
+    all_sprite.update()
+    screen.blit(text, [0, 0])
     
     pygame.display.update()
     
