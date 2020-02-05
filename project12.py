@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pygame
 
 pygame.init()
@@ -20,9 +21,9 @@ sprite.rect.y = 100
 
 
 font = pygame.font.Font(None, 24)
-text = font.render("Количество твоих кликов: "+str(clicks),True,white)
+text = font.render("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРєРѕРІ: "+str(clicks),True,white)
 screen.blit(text, [0, 0])
-text_win = font.render('Подравляю ты оформил спонсорскую подписку на ютубе! ',True,white)
+text_win = font.render('РџРѕР·РґСЂР°РІР»СЏСЋ, С‚С‹ РѕС„РѕСЂРјРёР» СЃРїРѕРЅСЃРѕСЂСЃРєСѓСЋ РїРѕРґРїРёСЃРєСѓ! ',True,white)
 
 running = True
 pygame.display.update()
@@ -35,29 +36,29 @@ while running:
             if sprite.rect.collidepoint(i.pos):
                 clicks += 1
                 print(clicks)
-                text = font.render("Количество твоих кликов: "+str(clicks),True,white)
+                text = font.render("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРєРѕРІ: "+str(clicks),True,white)
                 if clicks == 100:
-                    pygame.mixer.music.load('ганс оф бул щит.mp3')
+                    pygame.mixer.music.load('РіР°РЅСЃ РѕС„ Р±СѓР» С‰РёС‚.mp3')
                     pygame.mixer.music.play()            
                 if clicks == 30:
-                    pygame.mixer.music.load('ведьмак из мира шутеров.mp3')
+                    pygame.mixer.music.load('РІРµРґСЊРјР°Рє РёР· РјРёСЂР° С€СѓС‚РµСЂРѕРІ.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 50:
-                    pygame.mixer.music.load('купи мою подписку.mp3')
+                    pygame.mixer.music.load('РєСѓРїРё РјРѕСЋ РїРѕРґРїРёСЃРєСѓ.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 75:
-                    pygame.mixer.music.load('смех банана.mp3')
+                    pygame.mixer.music.load('СЃРјРµС… Р±Р°РЅР°РЅР°.mp3')
                     pygame.mixer.music.play() 
                 if clicks == 20:
-                    pygame.mixer.music.load('супер долби диджитал.mp3')
+                    pygame.mixer.music.load('СЃСѓРїРµСЂ РґРѕР»Р±Рё РґРёРґР¶РёС‚Р°Р».mp3')
                     pygame.mixer.music.play()   
                 if clicks == 10:
-                    pygame.mixer.music.load('это игра.mp3')
+                    pygame.mixer.music.load('СЌС‚Рѕ РёРіСЂР°.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 150:
                     surf_win = pygame.Surface((900, 700))
                     surf_win.blit(text_win, [0, 0])
-                    pygame.mixer.music.load('БАНАНЧИК.mp3')
+                    pygame.mixer.music.load('Р‘РђРќРђРќР§РРљ.mp3')
                     pygame.mixer.music.play()   
     screen.fill(pygame.Color("black"))
     all_sprite.draw(screen)
