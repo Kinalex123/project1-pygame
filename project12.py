@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import pygame
 
 pygame.init()
@@ -11,6 +10,8 @@ clicks = 0
 white = (250, 250, 250)
 black = (0, 0, 0)
 
+# спрайты для кликера
+
 all_sprite = pygame.sprite.Group()
 sprite = pygame.sprite.Sprite()
 sprite.image = pygame.image.load('banan.jpg')
@@ -19,16 +20,31 @@ all_sprite.add(sprite)
 sprite.rect.x = 100
 sprite.rect.y = 100
 
+# место для новых спрайтов
+
+all_sprites = pygame.sprite.Group()
+sprites = pygame.sprite.Sprite()
+sprites.image = pygame.image.load('персонаж.bmp')
+sprites.rect = sprite.image.get_rect()
+all_sprites.add(sprites)
+sprites.rect.x = 50
+sprites.rect.y = 200
+
+# тексты
 
 font = pygame.font.Font(None, 24)
-text = font.render("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРєРѕРІ: "+str(clicks),True,white)
+text = font.render("Количество твоих кликов: "+str(clicks),True,white)
 screen.blit(text, [0, 0])
-text_win = font.render('РџРѕР·РґСЂР°РІР»СЏСЋ, С‚С‹ РѕС„РѕСЂРјРёР» СЃРїРѕРЅСЃРѕСЂСЃРєСѓСЋ РїРѕРґРїРёСЃРєСѓ! ',True,white)
+text_win = font.render('Подравляю ты оформил спонсорскую подписку на ютубе! ',True,white)
 
 running = True
 pygame.display.update()
 while running:
     clock.tick(60)
+    screen.fill(pygame.Color("black"))
+    all_sprite.draw(screen)
+    all_sprite.update()
+    screen.blit(text, [0, 0])    
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             running = False
@@ -36,35 +52,42 @@ while running:
             if sprite.rect.collidepoint(i.pos):
                 clicks += 1
                 print(clicks)
-                text = font.render("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»РёРєРѕРІ: "+str(clicks),True,white)
+                text = font.render("Количество твоих кликов: "+str(clicks),True,white)
                 if clicks == 100:
-                    pygame.mixer.music.load('РіР°РЅСЃ РѕС„ Р±СѓР» С‰РёС‚.mp3')
+                    pygame.mixer.music.load('ганс оф бул щит.mp3')
                     pygame.mixer.music.play()            
                 if clicks == 30:
-                    pygame.mixer.music.load('РІРµРґСЊРјР°Рє РёР· РјРёСЂР° С€СѓС‚РµСЂРѕРІ.mp3')
+                    pygame.mixer.music.load('ведьмак из мира шутеров.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 50:
-                    pygame.mixer.music.load('РєСѓРїРё РјРѕСЋ РїРѕРґРїРёСЃРєСѓ.mp3')
+                    pygame.mixer.music.load('купи мою подписку.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 75:
-                    pygame.mixer.music.load('СЃРјРµС… Р±Р°РЅР°РЅР°.mp3')
+                    pygame.mixer.music.load('смех банана.mp3')
                     pygame.mixer.music.play() 
                 if clicks == 20:
-                    pygame.mixer.music.load('СЃСѓРїРµСЂ РґРѕР»Р±Рё РґРёРґР¶РёС‚Р°Р».mp3')
+                    pygame.mixer.music.load('супер долби диджитал.mp3')
                     pygame.mixer.music.play()   
                 if clicks == 10:
-                    pygame.mixer.music.load('СЌС‚Рѕ РёРіСЂР°.mp3')
+                    pygame.mixer.music.load('это игра.mp3')
                     pygame.mixer.music.play()   
-                if clicks == 150:
-                    surf_win = pygame.Surface((900, 700))
-                    surf_win.blit(text_win, [0, 0])
-                    pygame.mixer.music.load('Р‘РђРќРђРќР§РРљ.mp3')
-                    pygame.mixer.music.play()   
-    screen.fill(pygame.Color("black"))
-    all_sprite.draw(screen)
-    all_sprite.update()
-    screen.blit(text, [0, 0])
-    
+                if clicks == 5:
+                    pygame.mixer.music.load('БАНАНЧИК.mp3')
+                    pygame.mixer.music.play()
+                    running = False
     pygame.display.update()
+    
+gaming = True
+while gaming:
+    clock.tick(60)
+    pygame.display.update()
+    all_sprites.draw(screen)
+    all_sprites.update()    
+    screen_battle = pygame.display.set_mode((size))
+    screen_battle.fill(pygame.Color('white'))    
+    for i in pygame.event.get():
+        if i.type == pygame.QUIT:
+            gaming = False    
+    
     
 pygame.quit()
